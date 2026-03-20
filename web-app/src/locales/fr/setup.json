@@ -1,0 +1,13 @@
+{
+  "welcome": "Bienvenue sur Overchat",
+  "description": "Pour commencer, lancez rapidement avec Overchat Model ou choisissez votre propre fournisseur local ou distant",
+  "descriptionWeb": "Pour commencer, vous devrez vous connecter à un modèle cloud à l'aide d'une clé API",
+  "quickStart": "Démarrage rapide avec Overchat Model",
+  "quickStartDescription": "Aucune configuration requise",
+  "quickStartFailed": "Une erreur s'est produite. Veuillez réessayer.",
+  "downloading": "Téléchargement de Overchat Model...",
+  "downloadingDescription": "Veuillez patienter pendant le téléchargement du modèle. Cela peut prendre quelques minutes.",
+  "orDivider": "ou",
+  "localModel": "Configurer le modèle local",
+  "remoteProvider": "Configurer le fournisseur distant"
+}

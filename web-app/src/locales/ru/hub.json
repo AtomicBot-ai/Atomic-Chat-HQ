@@ -1,0 +1,23 @@
+{
+  "sortNewest": "Самые новые",
+  "sortMostDownloaded": "Самые загружаемые",
+  "newChat": "Новый чат",
+  "download": "Загрузить",
+  "downloaded": "Загруженные",
+  "loadingModels": "Загрузка моделей…",
+  "noModels": "Модели не найдены",
+  "by": "От",
+  "downloads": "Загрузки",
+  "variants": "Варианты",
+  "showVariants": "Показать варианты",
+  "useModel": "Использовать эту модель",
+  "downloadModel": "Загрузить модель",
+  "tools": "Инструменты",
+  "searchPlaceholder": "Поиск моделей на Hugging Face…",
+  "recTitle": "Рекомендуем",
+  "rec8gb": "Оптимально для устройств с 8 ГБ RAM",
+  "recChatting": "Лучше всего для чата",
+  "recAnalyzing": "Лучше всего для анализа файлов",
+  "recCoding": "Лучше всего для кода",
+  "backToModels": "Назад к моделям"
+}

@@ -1,0 +1,23 @@
+{
+  "sortNewest": "Más recientes",
+  "sortMostDownloaded": "Más descargados",
+  "newChat": "Nuevo chat",
+  "download": "Descargar",
+  "downloaded": "Descargado",
+  "loadingModels": "Cargando modelos...",
+  "noModels": "No se encontraron modelos",
+  "by": "Por",
+  "downloads": "Descargas",
+  "variants": "Variantes",
+  "showVariants": "Mostrar variantes",
+  "useModel": "Usar este modelo",
+  "downloadModel": "Descargar modelo",
+  "tools": "Herramientas",
+  "searchPlaceholder": "Buscar modelos en Hugging Face...",
+  "recTitle": "Recomendados",
+  "rec8gb": "Ideal para dispositivos con 8 GB RAM",
+  "recChatting": "Ideal para chatear",
+  "recAnalyzing": "Ideal para analizar archivos",
+  "recCoding": "Ideal para programar",
+  "backToModels": "Volver a modelos"
+}
