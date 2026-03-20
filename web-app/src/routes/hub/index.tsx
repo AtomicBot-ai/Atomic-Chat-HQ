@@ -94,6 +94,7 @@ function HubContent() {
   const { t } = useTranslation()
 
   const sortOptions = [
+    { value: 'recommended', name: t('hub:recTitle') },
     { value: 'newest', name: t('hub:sortNewest') },
     { value: 'most-downloaded', name: t('hub:sortMostDownloaded') },
     ...(IS_MACOS
@@ -121,7 +122,7 @@ function HubContent() {
   )
 
   const [searchValue, setSearchValue] = useState('')
-  const [sortSelected, setSortSelected] = useState('most-downloaded')
+  const [sortSelected, setSortSelected] = useState('recommended')
   const [expandedModels, setExpandedModels] = useState<Record<string, boolean>>(
     {}
   )
@@ -484,9 +485,10 @@ function HubContent() {
         </HeaderPage>
         <div ref={parentRef} className="p-4 w-full h-[calc(100%-60px)] overflow-y-auto! first-step-setup-local-provider">
           <div className="flex flex-col h-full justify-between gap-4 gap-y-3 w-full md:w-4/5 xl:w-4/6 mx-auto">
-            {/* Recommended models - full card if in catalog, else compact card linking to HF model page */}
-            <section className="shrink-0 mb-4 p-4 rounded-xl bg-sidebar">
-              <h2 className="text-sm font-medium mb-3 text-sidebar-foreground">
+            {/* Recommended models - only when "Recommended" is selected in the filter */}
+            {sortSelected === 'recommended' && (
+            <section className="shrink-0 mb-4">
+              <h2 className="text-sm font-medium mb-3 text-muted-foreground">
                 {t('hub:recTitle')}
               </h2>
               <div className="flex flex-col gap-3">
@@ -834,8 +836,10 @@ function HubContent() {
                 })}
                 </div>
               </section>
-            {/* Show skeleton immediately on navigation, then show actual content when loaded */}
-            {(isInitialLoad || (loading && !filteredModels.length)) ? (
+            )}
+            {/* Main list: only when not "Recommended" (Recommended shows only the 4 cards above) */}
+            {sortSelected !== 'recommended' && (
+            (isInitialLoad || (loading && !filteredModels.length)) ? (
               // Skeleton loading state for better perceived performance
               <div className="flex flex-col gap-3 animate-pulse">
                 {[...Array(5)].map((_, i) => (
@@ -1215,6 +1219,7 @@ function HubContent() {
                   ))}
                 </div>
               </div>
+            )
             )}
           </div>
         </div>
