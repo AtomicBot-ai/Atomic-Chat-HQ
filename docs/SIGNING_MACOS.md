@@ -1,94 +1,96 @@
-# Подпись приложения Overchat для macOS
+# Подпись Atomic Chat (Jan / Tauri) для macOS
 
-Чтобы любой человек мог открыть приложение без предупреждения «разработчик не проверен», нужно подписать его сертификатом Apple (и при желании пройти нотаризацию).
+По [официальной схеме Tauri](https://v2.tauri.app/distribute/sign/macos/): переменные окружения + `yarn build`. Ручной `codesign` по всему `.app` не нужен — его выполняет CLI Tauri при сборке.
 
 ## Что нужно
 
-1. **Apple Developer Program** — платная учётная запись ($99/год): [developer.apple.com](https://developer.apple.com/programs/).
-2. **Сертификат Developer ID Application** — для распространения вне App Store (не «Apple Distribution»).
+1. **Apple Developer Program** ($99/год): [developer.apple.com](https://developer.apple.com/programs/).
+2. В связке ключей — **Developer ID Application** (не «Apple Distribution» для Mac App Store).
+
+Сертификат создаётся только у Apple: CSR на Mac → загрузка в [Certificates](https://developer.apple.com/account/resources/certificates/list) → скачать `.cer` → открыть (ключ попадёт в «Связку ключей»). **Сгенерировать сертификат за вас из репозитория нельзя** — нужна ваша учётка разработчика.
 
 ---
 
-## Шаг 1: Создать сертификат
-
-1. На Mac откройте **Связка ключей** (Keychain Access).
-2. Меню **Связка ключей** → **Сертификатный помощник** → **Запросить сертификат у центра сертификации**.
-3. Укажите email, имя, выберите «Сохранить на диск» → сохраните `.certSigningRequest`.
-4. В [developer.apple.com → Certificates, IDs & Profiles](https://developer.apple.com/account/resources/certificates/list) нажмите **Create a certificate**.
-5. Выберите **Developer ID Application** → загрузите CSR → скачайте `.cer`.
-6. Откройте скачанный `.cer` — сертификат добавится в связку ключей.
-
----
-
-## Шаг 2: Узнать имя сертификата (Signing Identity)
-
-В Терминале выполните:
+## Шаг 1: Узнать signing identity
 
 ```bash
 security find-identity -v -p codesigning
 ```
 
-Найдите строку вида:
-
-```
-1) XXXXX "Developer ID Application: Your Name (TEAMID)"
-```
-
-Скопируйте **полное имя** в кавычках: `Developer ID Application: Your Name (TEAMID)`.
+Строка вида `Developer ID Application: … (TEAMID)` — это **полное имя**. При нескольких совпадениях надёжнее указать **SHA-1** из первого столбца.
 
 ---
 
-## Шаг 3: Сборка с подписью
+## Шаг 2: Сборка с подписью (как в проекте)
 
-Задайте переменную окружения и соберите приложение:
+Из корня репозитория `jan/`:
 
 ```bash
-export APPLE_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)"
+# при необходимости положить расширения в pre-install (копирует в bundle)
+cp src-tauri/resources/pre-install/*.tgz pre-install/ 2>/dev/null || true
+
+export APPLE_SIGNING_IDENTITY="Developer ID Application: SpaceshipIntelligence OU (UT6WGPGTGR)"
+# или: export APPLE_SIGNING_IDENTITY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
 CI=false yarn build
 ```
 
-Либо одной строкой (подставьте своё имя и TEAMID):
+`CI=false` обязателен: иначе Tauri в режиме CI может **не** подписывать.
+
+Готовый **universal** DMG (Intel + Apple Silicon):
+
+`src-tauri/target/universal-apple-darwin/release/bundle/dmg/Atomic Chat_*.dmg`
+
+(имя берётся из `productName` в `tauri.conf.json`.)
+
+Проверка подписи приложения:
 
 ```bash
-APPLE_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)" CI=false yarn build
+codesign -dv --verbose=2 "src-tauri/target/universal-apple-darwin/release/bundle/macos/Atomic Chat.app" 2>&1 | grep -E "Authority|Timestamp|runtime"
 ```
 
-Готовый DMG будет здесь:
+Должны быть цепочка **Developer ID** → **Developer ID Certification Authority** → **Apple Root CA**, **Timestamp**, у основного бинарника — **flags** с runtime (Hardened Runtime задаёт Tauri при подписи).
 
-`src-tauri/target/universal-apple-darwin/release/bundle/dmg/Overchat_*.dmg`
-
-Такой образ уже подписан; его можно отправлять другим — при открытии не должно быть предупреждения о непроверенном разработчике.
+Перед фазой bundle запускается `src-tauri/scripts/strip-macos-xattrs.sh` (снятие `xattr`), иначе `codesign` иногда падает с `resource fork, Finder information, or similar detritus not allowed`.
 
 ---
 
 ## Опционально: нотаризация
 
-Нотаризация даёт дополнительное доверие со стороны macOS (особенно в новых версиях). Нужны:
+Нужны учётные данные для Apple:
 
-- **APPLE_ID** — email Apple ID (от учётной записи разработчика).
-- **APPLE_PASSWORD** — [пароль для приложений](https://appleid.apple.com/account/manage) (не обычный пароль от Apple ID).
-
-Перед сборкой:
+- **APPLE_ID** — email Apple ID разработчика.
+- **APPLE_PASSWORD** — [пароль для приложений](https://appleid.apple.com/account/manage) (не обычный пароль Apple ID).
+- **APPLE_TEAM_ID** — Team ID (10 символов, виден в сертификате и на developer.apple.com).
 
 ```bash
-export APPLE_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)"
+export APPLE_SIGNING_IDENTITY="…"
 export APPLE_ID="your@email.com"
 export APPLE_PASSWORD="xxxx-xxxx-xxxx-xxxx"
+export APPLE_TEAM_ID="UT6WGPGTGR"
 CI=false yarn build
 ```
 
-Tauri сам отправит приложение на нотаризацию после сборки.
+Tauri отправит билд на нотаризацию после сборки (см. доку Tauri). Либо после сборки вручную: `xcrun notarytool submit … --wait` и `xcrun stapler staple` для DMG — см. [notarytool](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution).
+
+---
+
+## Нативная сборка только под текущий Mac (быстрее, не universal)
+
+Для локальных тестов без Intel-слоя:
+
+```bash
+CI=false APPLE_SIGNING_IDENTITY="…" yarn build:web && yarn build:icon && yarn copy:assets:tauri && CI=false APPLE_SIGNING_IDENTITY="…" yarn build:tauri:darwin:native
+```
+
+DMG: `src-tauri/target/release/bundle/dmg/Atomic Chat_*_aarch64.dmg` (на Apple Silicon).
 
 ---
 
 ## Если нет Apple Developer
 
-Без платного аккаунта подписать приложение для «любого человека» нельзя. Получатель может открыть неподписанное приложение так:
-
-- **Правый клик** по приложению → **Открыть** → в диалоге нажать **Открыть**,  
-или в Терминале (путь замените на свой):
+Распространять подписанный билд «для всех» нельзя. Локально можно открыть неподписанное приложение: правый клик → **Открыть**, или:
 
 ```bash
-xattr -cr /Applications/Overchat.app
-open /Applications/Overchat.app
+xattr -cr "/Applications/Atomic Chat.app"
 ```

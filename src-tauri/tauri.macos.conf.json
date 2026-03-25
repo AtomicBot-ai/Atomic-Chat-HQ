@@ -1,9 +1,13 @@
 {
+  "build": {
+    "beforeBundleCommand": "bash src-tauri/scripts/strip-macos-xattrs.sh"
+  },
   "app": {
     "windows": [
       {
         "label": "main",
         "title": "Atomic Chat",
+        "devtools": true,
         "width": 1200,
         "minWidth": 1024,
         "height": 800,
