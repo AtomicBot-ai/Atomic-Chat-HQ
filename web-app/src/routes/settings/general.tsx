@@ -562,7 +562,7 @@ function General() {
                   description={t('settings:general.releaseNotesDesc')}
                   actions={
                     <a
-                      href="https://github.com/AtomicBot-ai/Atomic-Chat/releases"
+                      href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/releases"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -584,7 +584,7 @@ function General() {
                   description={t('settings:general.githubDesc')}
                   actions={
                     <a
-                      href="https://github.com/AtomicBot-ai/Atomic-Chat"
+                      href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -622,7 +622,7 @@ function General() {
                   description={t('settings:general.reportAnIssueDesc')}
                   actions={
                     <a
-                      href="https://github.com/AtomicBot-ai/Atomic-Chat/issues/new"
+                      href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues/new"
                       target="_blank"
                     >
                       <div className="flex items-center gap-1">

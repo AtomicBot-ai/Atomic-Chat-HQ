@@ -1,19 +1,19 @@
-<img src="https://github.com/AtomicBot-ai/Atomic-Chat/raw/main/assets/logo.png" width="80" alt="Atomic Chat" />
+<img src="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/raw/main/assets/logo.png" width="80" alt="Atomic Chat" />
 
 # Atomic Chat
 
 Open-source ChatGPT alternative. Run local LLMs or connect cloud models — with full control and privacy.
 
-<a href="https://github.com/AtomicBot-ai/Atomic-Chat/stargazers"><img src="https://img.shields.io/github/stars/AtomicBot-ai/Atomic-Chat?style=flat&logo=github&label=Stars&color=f5c542" alt="Stars" /></a>&nbsp;
-<a href="https://github.com/AtomicBot-ai/Atomic-Chat/network/members"><img src="https://img.shields.io/github/forks/AtomicBot-ai/Atomic-Chat?style=flat&logo=github&label=Forks&color=4ac1f2" alt="Forks" /></a>&nbsp;
-<a href="https://github.com/AtomicBot-ai/Atomic-Chat/commits/main"><img src="https://img.shields.io/github/last-commit/AtomicBot-ai/Atomic-Chat?style=flat&label=Last%20Commit&color=blueviolet" alt="Last Commit" /></a>&nbsp;
+<a href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/stargazers"><img src="https://img.shields.io/github/stars/AtomicBot-ai/Atomic-Chat-HQ?style=flat&logo=github&label=Stars&color=f5c542" alt="Stars" /></a>&nbsp;
+<a href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/network/members"><img src="https://img.shields.io/github/forks/AtomicBot-ai/Atomic-Chat-HQ?style=flat&logo=github&label=Forks&color=4ac1f2" alt="Forks" /></a>&nbsp;
+<a href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/commits/main"><img src="https://img.shields.io/github/last-commit/AtomicBot-ai/Atomic-Chat-HQ?style=flat&label=Last%20Commit&color=blueviolet" alt="Last Commit" /></a>&nbsp;
 <img src="https://img.shields.io/badge/Built_with-Tauri-FFC131?style=flat&logo=tauri&logoColor=white" alt="Tauri" />&nbsp;
 <img src="https://img.shields.io/badge/Runtime-Node.js_≥20-339933?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js" />
 
-[Getting Started](https://atomic.chat/) · [Discord](https://discord.com/invite/AbWHHdKT) · [X / Twitter](https://x.com/atomic_chat_hq) · [Bug Reports](https://github.com/AtomicBot-ai/Atomic-Chat/issues)
+[Getting Started](https://atomic.chat/) · [Discord](https://discord.com/invite/AbWHHdKT) · [X / Twitter](https://x.com/atomic_chat_hq) · [Bug Reports](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues)
 
 <p align="center">
-  <img src="https://github.com/AtomicBot-ai/Atomic-Chat/raw/main/assets/preview.png" width="100%" alt="Atomic Chat Interface" />
+  <img src="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/raw/main/assets/preview.png" width="100%" alt="Atomic Chat Interface" />
 </p>
 
 ---
@@ -22,9 +22,9 @@ Open-source ChatGPT alternative. Run local LLMs or connect cloud models — with
 
 |                       |                                                                          |
 | --------------------- | ------------------------------------------------------------------------ |
-| **macOS (Universal)** | [atomic-chat.dmg](https://github.com/AtomicBot-ai/Atomic-Chat/releases/tag/v1.0.23) |
+| **macOS (Universal)** | [atomic-chat.dmg](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/releases/tag/v1.0.23) |
 
-Download from [atomic.chat](https://atomic.chat/) or [GitHub Releases](https://github.com/AtomicBot-ai/Atomic-Chat/releases).
+Download from [atomic.chat](https://atomic.chat/) or [GitHub Releases](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/releases).
 
 ---
 
@@ -52,7 +52,7 @@ Download from [atomic.chat](https://atomic.chat/) or [GitHub Releases](https://g
 #### Run with Make
 
 ```bash
-git clone https://github.com/AtomicBot-ai/Atomic-Chat
+git clone https://github.com/AtomicBot-ai/Atomic-Chat-HQ
 cd Atomic-Chat
 make dev
 ```
@@ -89,7 +89,7 @@ yarn dev
 If something isn't working:
 
 1. Copy your error logs and system specs
-2. Open an issue on [GitHub](https://github.com/AtomicBot-ai/Atomic-Chat/issues)
+2. Open an issue on [GitHub](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues)
 3. Or ask for help in our [Discord](https://discord.com/invite/AbWHHdKT) `#🆘|atomic-chat-help` channel
 
 ---
@@ -100,15 +100,15 @@ Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 <p align="center">
   <a href="https://discord.com/invite/AbWHHdKT"><img src="https://img.shields.io/badge/💬_Chat_on-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>&nbsp;
-  <a href="https://github.com/AtomicBot-ai/Atomic-Chat/issues"><img src="https://img.shields.io/badge/🐛_Report-Issues-FF4444?style=for-the-badge" alt="Report Issues" /></a>&nbsp;
-  <a href="https://github.com/AtomicBot-ai/Atomic-Chat/pulls"><img src="https://img.shields.io/badge/🔀_Submit-PRs-44CC11?style=for-the-badge" alt="Submit PRs" /></a>
+  <a href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues"><img src="https://img.shields.io/badge/🐛_Report-Issues-FF4444?style=for-the-badge" alt="Report Issues" /></a>&nbsp;
+  <a href="https://github.com/AtomicBot-ai/Atomic-Chat-HQ/pulls"><img src="https://img.shields.io/badge/🔀_Submit-PRs-44CC11?style=for-the-badge" alt="Submit PRs" /></a>
 </p>
 
 ---
 
 ### Contact
 
-- **Bugs**: [GitHub Issues](https://github.com/AtomicBot-ai/Atomic-Chat/issues)
+- **Bugs**: [GitHub Issues](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues)
 - **General Discussion**: [Discord](https://discord.com/invite/AbWHHdKT)
 - **Updates**: [X / Twitter](https://x.com/atomic_chat_hq)
 

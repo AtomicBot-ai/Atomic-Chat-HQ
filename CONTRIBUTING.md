@@ -144,7 +144,7 @@ Atomic-Chat/
 
 **Option 1: The Easy Way (Make)**
 ```bash
-git clone https://github.com/AtomicBot-ai/Atomic-Chat
+git clone https://github.com/AtomicBot-ai/Atomic-Chat-HQ
 cd Atomic-Chat
 make dev
 ```
@@ -153,8 +153,8 @@ make dev
 
 ### Reporting Bugs
 
-- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/AtomicBot-ai/Atomic-Chat/issues)
-- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/AtomicBot-ai/Atomic-Chat/issues/new)
+- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues)
+- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues/new)
 - Include your system specs and error logs - it helps a ton
 
 ### Suggesting Enhancements
@@ -225,7 +225,7 @@ docs: update installation instructions
 
 If things go sideways:
 
-1. **Check [GitHub Issues](https://github.com/AtomicBot-ai/Atomic-Chat/issues) for known problems**
+1. **Check [GitHub Issues](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues) for known problems**
 2. **Clear everything and start fresh:** `make clean` then `make dev`
 3. **Copy your error logs and system specs**
 4. **Ask for help in our [Discord](https://discord.com/invite/AbWHHdKT)** `#🆘|atomic-chat-help` channel
@@ -237,10 +237,10 @@ Common issues:
 
 ## Getting Help
 
-- [Documentation](https://github.com/AtomicBot-ai/Atomic-Chat#readme) - Project overview and setup
+- [Documentation](https://github.com/AtomicBot-ai/Atomic-Chat-HQ#readme) - Project overview and setup
 - [Discord Community](https://discord.com/invite/AbWHHdKT) - Where the community lives
-- [GitHub Issues](https://github.com/AtomicBot-ai/Atomic-Chat/issues) - Report bugs here
-- [GitHub Discussions](https://github.com/AtomicBot-ai/Atomic-Chat/discussions) - Ask questions
+- [GitHub Issues](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/issues) - Report bugs here
+- [GitHub Discussions](https://github.com/AtomicBot-ai/Atomic-Chat-HQ/discussions) - Ask questions
 
 ## License
 
